@@ -327,7 +327,7 @@
 
     .indexes {
         a {
-            opacity: 0.6;
+
             width: 24px;
             height: 24px;
             display: flex;
@@ -361,7 +361,7 @@
 
         a:first-child {
             svg {
-                opacity: 0.6;
+
                 transform: rotate(90deg);
             }
         }
@@ -374,7 +374,7 @@
         }
 
         a.active {
-            opacity: 1;
+            opacity: 0.6;
         }
     }
 }

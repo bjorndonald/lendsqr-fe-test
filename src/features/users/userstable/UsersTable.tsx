@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import Table from '../../../components/table/Table'
+import { MONTHS } from '../../../constants/strings'
 import DotMenuIcon from '../../../icons/DotMenu.icon'
 import FilterIcon from '../../../icons/Filter.icon'
 import ActivateIcon from '../../../icons/table/Activate.icon'
@@ -88,6 +89,18 @@ const StatusRow = ({ user }: { user: UserType }) => {
 function UsersTable() {
     const navigate = useNavigate()
     const { users } = useUsersContext()
+
+    const formatDate = (date: Date) => {
+        const month = MONTHS[date.getMonth()];
+        const day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate()
+        const year = date.getFullYear()
+        const hour = date.getHours() < 10 ? "0" + date.getHours() : date.getHours()
+        const minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()
+        const gmt = date.getHours() < 12 ? "AM" : "PM"
+
+        return month + " " + day + ", " + year + " " + hour + ":" + minutes + " " + gmt
+    }
+
     const getRows = () => {
         return users.map((value, index) => {
             return {
@@ -95,7 +108,7 @@ function UsersTable() {
                 username: <div className='username'>{value.userName}</div>,
                 email: value.email,
                 phone: value.phoneNumber.split('x')[0],
-                date_joined: "Apr x30, 2020 10:00 AM",
+                date_joined: formatDate(new Date(value.createdAt)),
                 status: <StatusRow key={index} user={value} />
             }
         })

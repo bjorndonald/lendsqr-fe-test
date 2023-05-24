@@ -103,10 +103,18 @@ function Table({ rows, columns }: Props) {
             </div>
         )
     }
-
-
-
     const pageCount = Math.ceil(rows.length / (limit as number));
+
+    useEffect(() => {
+        setPage(page < pageCount ? page : pageCount)
+
+        return () => {
+
+        }
+    }, [limit])
+
+
+
 
     return (
         <>
@@ -119,7 +127,7 @@ function Table({ rows, columns }: Props) {
                     </div>
                 </div>
                 <div className="table-body">
-                    {rows.slice(page - 1, page * (limit as number)).map((x, i) => (
+                    {rows.slice((page - 1) * (limit as number), page * (limit as number)).map((x, i) => (
                         <div key={i} className="table-row" >
                             {columns.map((item: any, index) => (
                                 <>
@@ -143,26 +151,87 @@ function Table({ rows, columns }: Props) {
                 </div>
 
                 <div className="d-flex indexes align-items-center">
-                    <a>
+                    <a className={`${page === 1 ? 'active' : ''}`}>
                         <CaretIcon />
                     </a>
-                    <div className="numbers">
-                        {/* {[...new Array(pageCount)]} */}
-                        {pageCount <= 6 && [...new Array(pageCount)].map((item, index) => (
-                            <span>{index + 1}</span>
+
+                    {pageCount <= 8 && [...new Array(pageCount)].map((item, index) => (
+                        <div className="numbers">
+                            <span onClick={() => setPage(index + 1)} className={`${page === index + 1 ? 'active' : ''}`}>{index + 1}</span>
+                        </div>
+                    ))}
+                    {pageCount > 8 && page < 3 && <div className="numbers">
+                        {[...new Array(pageCount)].map((item, index) => (<>
+                            {index + 1 < 4 && <span onClick={() => setPage(index + 1)} className={`${page === index + 1 ? 'active' : ''}`}>{index + 1}</span>}
+                            {index + 1 === 3 && <span>...</span>}
+
+                            {index + 1 === pageCount && <span onClick={() => setPage(index + 1)} className={`${page === index + 1 ? 'active' : ''}`}>{index + 1}</span>}
+                            {index + 1 === pageCount - 1 && <span onClick={() => setPage(index + 1)} className={`${page === index + 1 ? 'active' : ''}`}>{index + 1}</span>}
+                        </>
                         ))}
+                    </div>}
 
-                        {pageCount > 6 && <>
-                            <span>1</span>
-                            <span>2</span>
-                            <span>3</span>
-                            <span>...</span>
-                            <span>15</span>
-                            <span>16</span>
-                        </>}
+                    {pageCount > 8 && page === 4 && <div className="numbers">
+                        {[...new Array(pageCount)].map((item, index) => (<>
+                            {index + 1 <= 5 && <span onClick={() => setPage(index + 1)} className={`${page === index + 1 ? 'active' : ''}`}>{index + 1}</span>}
+                            {index + 1 === 5 && <span>...</span>}
 
-                    </div>
-                    <a>
+                            {index + 1 === pageCount && <span onClick={() => setPage(index + 1)} className={`${page === index + 1 ? 'active' : ''}`}>{index + 1}</span>}
+                            {index + 1 === pageCount - 1 && <span onClick={() => setPage(index + 1)} className={`${page === index + 1 ? 'active' : ''}`}>{index + 1}</span>}
+                        </>
+                        ))}
+                    </div>}
+
+                    {pageCount > 8 && page === 3 && <div className="numbers">
+                        {[...new Array(pageCount)].map((item, index) => (<>
+                            {index + 1 <= 4 && <span onClick={() => setPage(index + 1)} className={`${page === index + 1 ? 'active' : ''}`}>{index + 1}</span>}
+                            {index + 1 === 4 && <span>...</span>}
+                            {index + 1 === pageCount && <span onClick={() => setPage(index + 1)} className={`${page === index + 1 ? 'active' : ''}`}>{index + 1}</span>}
+                            {index + 1 === pageCount - 1 && <span onClick={() => setPage(index + 1)} className={`${page === index + 1 ? 'active' : ''}`}>{index + 1}</span>}
+                        </>
+                        ))}
+                    </div>}
+
+                    {pageCount > 8 && page > 4 && page < pageCount - 3 && <div className="numbers">
+                        {[...new Array(pageCount)].map((item, index) => (<>
+                            {index + 1 === 1 && <>
+                                <span onClick={() => setPage(index + 1)} className={`${page === index + 1 ? 'active' : ''}`}>{index + 1}</span>
+                                <span>...</span>
+                            </>}
+                            {index + 1 > 3 && index + 1 < 8 && <span onClick={() => setPage(index + 1)} className={`${page === index + 1 ? 'active' : ''}`}>{index + 1}</span>}
+                            {index + 1 === pageCount && <span onClick={() => setPage(index + 1)} className={`${page === index + 1 ? 'active' : ''}`}>{index + 1}</span>}
+                            {index + 1 === pageCount - 1 && <>
+                                <span>...</span>
+                                <span onClick={() => setPage(index + 1)} className={`${page === index + 1 ? 'active' : ''}`}>{index + 1}</span>
+                            </>}
+                        </>
+                        ))}
+                    </div>}
+
+                    {pageCount > 8 && page === 7 && <div className="numbers">
+                        {[...new Array(pageCount)].map((item, index) => (<>
+                            {index + 1 === 1 && <>
+                                <span onClick={() => setPage(index + 1)} className={`${page === index + 1 ? 'active' : ''}`}>{index + 1}</span>
+                                <span>...</span>
+                            </>}
+                            {index + 1 > pageCount - 5 && <span onClick={() => setPage(index + 1)} className={`${page === index + 1 ? 'active' : ''}`}>{index + 1}</span>}
+                        </>
+                        ))}
+                    </div>}
+
+                    {pageCount > 8 && page > 7 && <div className="numbers">
+                        {[...new Array(pageCount)].map((item, index) => (<>
+                            {index + 1 === 1 && <>
+                                <span onClick={() => setPage(index + 1)} className={`${page === index + 1 ? 'active' : ''}`}>{index + 1}</span>
+                                <span>...</span>
+                            </>}
+                            {index + 1 > pageCount - 4 && <span onClick={() => setPage(index + 1)} className={`${page === index + 1 ? 'active' : ''}`}>{index + 1}</span>}
+
+                        </>
+                        ))}
+                    </div>}
+
+                    <a className={`${page === pageCount ? 'active' : ''}`}>
                         <CaretIcon />
                     </a>
                 </div>
