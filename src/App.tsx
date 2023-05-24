@@ -8,6 +8,7 @@ import Users from './pages/users/Users';
 import { createMemoryHistory } from 'history'
 import UserContextProvider from './pages/user/user.context';
 import User from './pages/user/User';
+import Dashboard from './pages/dashboard/Dashboard';
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
         <AppContextProvider>
           <Routes>
             <Route path='/' element={<Login />} />
+            <Route path='/dashboard' element={
+              <Dashboard />} />
             <Route path='/users' element={
               <UsersContextProvider>
                 <Users />

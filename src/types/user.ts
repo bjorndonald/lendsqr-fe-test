@@ -1,8 +1,13 @@
+export enum UserStatus {
+    BLACKLISTED = 1, ACTIVE, INACTIVE, PENDING
+}
+
 export type UserType = {
     "createdAt": string,
     "orgName": string,
     "userName": string,
     "email": string,
+    status?: UserStatus,
     "phoneNumber": string,
     "lastActiveDate": string,
     "profile": {

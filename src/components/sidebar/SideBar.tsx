@@ -24,8 +24,10 @@ import BadgeIcon from '../../icons/sidebar/Badge.icon'
 import AuditIcon from '../../icons/sidebar/Audit.icon'
 import MessagesIcon from '../../icons/sidebar/Messages.icon'
 import LogoutIcon from '../../icons/sidebar/Logout.icon'
+import { useNavigate } from 'react-router-dom'
 
 function SideBar() {
+    const navigate = useNavigate()
     return (
         <div id='side-bar'>
             <div className="menu">
@@ -36,12 +38,12 @@ function SideBar() {
             </div>
 
             <ul className="list">
-                <li><HomeIcon color={BLUE_COLOR} /> <span>Dashboard</span></li>
+                <li className={window.location.href.includes('dashboard') ? 'active' : ''} onClick={() => navigate('/dashboard')}><HomeIcon color={BLUE_COLOR} /> <span>Dashboard</span></li>
             </ul>
 
             <ul className="list">
                 <h5>CUSTOMERS</h5>
-                <li className='active'><UsersIcon color={BLUE_COLOR} /><span>Users</span></li>
+                <li className={window.location.href.includes('users') ? 'active' : ''} onClick={() => navigate('/users')} ><UsersIcon color={BLUE_COLOR} /><span>Users</span></li>
                 <li><GuarantorsIcon color={BLUE_COLOR} /><span>Guarantors</span> </li>
                 <li><LoansIcon color={BLUE_COLOR} /> <span>Loans</span></li>
                 <li><HandshakesIcon color={BLUE_COLOR} /><span>Decision Models</span></li>

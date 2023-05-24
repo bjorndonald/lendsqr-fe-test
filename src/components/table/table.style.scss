@@ -29,6 +29,39 @@
                     flex-direction: column;
                     padding: 30px 20px;
 
+                    .buttons {
+                        display: flex;
+                        justify-content: space-between;
+
+                        .btn {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-family: 'Work Sans';
+                            font-style: normal;
+                            font-weight: 600;
+                            font-size: 14px;
+                            line-height: 16px;
+                            display: flex;
+                            align-items: center;
+                            text-align: center;
+                            border-radius: 8px;
+                            width: 98px;
+                            height: 40px;
+                        }
+
+                        .btn-outline-dark {
+                            color: #545F7D;
+                            border: 1px solid #545F7D;
+                        }
+
+                        .btn-green {
+                            color: #FFFFFF;
+                            background: #39CDCC;
+                            border: 1px solid #39CDCC;
+                        }
+                    }
+
                     .form-group {
                         display: flex;
                         margin-bottom: 20px;

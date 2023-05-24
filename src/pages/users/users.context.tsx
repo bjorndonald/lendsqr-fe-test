@@ -11,7 +11,8 @@ export enum TabEnum {
 const UsersContext = createContext({
     tab: TabEnum.GENERAL,
     setTab: (tab: TabEnum) => { },
-    users: [{}] as UserType[]
+    users: [{}] as UserType[],
+    setUsers: (users: UserType[]) => { },
 })
 
 type Props = {
@@ -35,7 +36,7 @@ const UsersContextProvider = ({ children }: Props) => {
 
     return <UsersContext.Provider
         value={{
-            tab, setTab, users
+            tab, setTab, users, setUsers
         }}
     >
         {children}

@@ -60,6 +60,15 @@ const FilterMenu = () => {
                 <label htmlFor="status">Status</label>
                 <Dropdown setValue={() => { }} id='status' selectedValue={status} list={[]} />
             </div>
+
+            <div className="buttons">
+                <div className="btn btn-outline-dark">
+                    Reset
+                </div>
+                <div className="btn btn-green">
+                    Filter
+                </div>
+            </div>
         </div>
     )
 }
@@ -106,7 +115,8 @@ function Table({ rows, columns }: Props) {
     const pageCount = Math.ceil(rows.length / (limit as number));
 
     useEffect(() => {
-        setPage(page < pageCount ? page : pageCount)
+
+        setPage(page < pageCount || !pageCount ? page : pageCount)
 
         return () => {
 
@@ -155,11 +165,13 @@ function Table({ rows, columns }: Props) {
                         <CaretIcon />
                     </a>
 
-                    {pageCount <= 8 && [...new Array(pageCount)].map((item, index) => (
+                    {pageCount <= 8 &&
                         <div className="numbers">
-                            <span onClick={() => setPage(index + 1)} className={`${page === index + 1 ? 'active' : ''}`}>{index + 1}</span>
+                            {[...new Array(pageCount)].map((item, index) => (
+                                <span key={index} onClick={() => setPage(index + 1)} className={`${page === index + 1 ? 'active' : ''}`}>{index + 1}</span>
+                            ))}
                         </div>
-                    ))}
+                    }
                     {pageCount > 8 && page < 3 && <div className="numbers">
                         {[...new Array(pageCount)].map((item, index) => (<>
                             {index + 1 < 4 && <span onClick={() => setPage(index + 1)} className={`${page === index + 1 ? 'active' : ''}`}>{index + 1}</span>}

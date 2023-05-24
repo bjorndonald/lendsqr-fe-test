@@ -3,12 +3,12 @@ import { useNavigate } from 'react-router-dom'
 import Table from '../../../components/table/Table'
 import { MONTHS } from '../../../constants/strings'
 import DotMenuIcon from '../../../icons/DotMenu.icon'
-import FilterIcon from '../../../icons/Filter.icon'
+import $ from 'jquery'
 import ActivateIcon from '../../../icons/table/Activate.icon'
 import BlacklistIcon from '../../../icons/table/Blacklist.icon'
 import EyeIcon from '../../../icons/table/Eye.icon'
 import { useUsersContext } from '../../../pages/users/users.context'
-import { UserType } from '../../../types/user'
+import { UserStatus, UserType } from '../../../types/user'
 import './userstable.style.scss'
 
 const COLUMNS = [
@@ -46,20 +46,51 @@ const COLUMNS = [
 ]
 
 const StatusRow = ({ user }: { user: UserType }) => {
+    const navigate = useNavigate()
+    const { users, setUsers } = useUsersContext()
+
+    const blacklistUser = () => {
+        let arr: UserType[]
+        arr = users.map((item) => {
+            let tmp = item
+            if (item.id === user.id) {
+                tmp.status = UserStatus.BLACKLISTED
+            }
+            return tmp
+        })
+        setUsers(arr)
+    }
+
+    const activateUser = () => {
+        let arr: UserType[]
+        arr = users.map((item) => {
+            let tmp = item
+            if (item.id === user.id) {
+                tmp.status = UserStatus.ACTIVE
+            }
+            return tmp
+        })
+        setUsers(arr)
+    }
+
     return (
         <div style={{ position: "relative" }} className="d-flex status w-100 justify-content-between align-items-center">
-            {!user.accountNumber ? <div className="grey-bubble bubble">
-                Inactive
+            {new Date().getTime() - new Date(user.createdAt).getTime() > 0 && !user.status ? <div className="yellow-bubble bubble">
+                Pending
             </div> :
-                !!user.accountNumber ? <div className="green-bubble bubble">
-                    Active
-                </div> :
-                    +user.education.loanRepayment > 0 ? <div className="yellow-bubble bubble">
-                        Pending
-                    </div> :
-                        !user.accountBalance ? <div className="red-bubble bubble">
-                            Blacklisted
-                        </div> : null}
+                <>
+                    {!user.status && <div className="grey-bubble bubble">
+                        Inactive
+                    </div>}
+                    {user.status === UserStatus.ACTIVE && <div className="green-bubble bubble">
+                        Active
+                    </div>}
+                    {user.status === UserStatus.BLACKLISTED && <div className="red-bubble bubble">
+                        Blacklisted
+                    </div>}
+                </>}
+
+
 
             <a onClick={(e) => {
                 $(e.target).parents('.status')
@@ -69,15 +100,15 @@ const StatusRow = ({ user }: { user: UserType }) => {
                 <DotMenuIcon />
             </a>
             <div className="popup-menu">
-                <div className="popup-item">
+                <div className="popup-item" onClick={() => { navigate('/user/' + user.id) }}>
                     <EyeIcon color='#545F7D' />
                     <span>View Details</span>
                 </div>
-                <div className="popup-item">
+                <div className="popup-item" onClick={blacklistUser}>
                     <BlacklistIcon color='#545F7D' />
                     <span>Blacklist User</span>
                 </div>
-                <div className="popup-item">
+                <div className="popup-item" onClick={activateUser}>
                     <ActivateIcon color='#545f7d' />
                     <span>Activate User</span>
                 </div>
