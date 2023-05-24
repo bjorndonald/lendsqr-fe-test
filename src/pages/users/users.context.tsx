@@ -1,4 +1,6 @@
 import React, { createContext, ReactNode, useContext, useEffect, useState } from "react"
+import { STORAGE_KEY } from "../../constants/strings";
+import { useAppContext } from "../../contexts/app.context";
 import { getUsers } from "../../queries/user";
 import { UserType } from "../../types/user";
 
@@ -11,7 +13,7 @@ export enum TabEnum {
 const UsersContext = createContext({
     tab: TabEnum.GENERAL,
     setTab: (tab: TabEnum) => { },
-    users: [{}] as UserType[],
+    users: [] as UserType[],
     setUsers: (users: UserType[]) => { },
 })
 
@@ -28,11 +30,10 @@ const UsersContextProvider = ({ children }: Props) => {
             setUsers(res.data)
         }).catch(error => {
         })
-        return () => {
 
+        return () => {
         }
     }, [])
-
 
     return <UsersContext.Provider
         value={{

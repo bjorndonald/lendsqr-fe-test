@@ -411,3 +411,11 @@
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+    #table {
+        .table-col:not(:last-child) {
+            margin-right: 10px;
+        }
+    }
+}

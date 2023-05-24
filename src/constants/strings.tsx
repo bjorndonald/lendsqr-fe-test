@@ -13,3 +13,5 @@ export const MONTHS = [
     "Nov",
     "Dec"
 ]
+
+export const STORAGE_KEY = "USER"

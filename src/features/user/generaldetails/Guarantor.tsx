@@ -7,7 +7,7 @@ function Guarantor() {
         <div id='guarantor'>
             <h5>Guarantor</h5>
             <section>
-                <div className="d-flex">
+                <div className="d-flex info-row">
                     <div className="d-flex column">
                         <div className="d-flex flex-column">
                             <small>full Name</small>

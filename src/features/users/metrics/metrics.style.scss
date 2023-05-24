@@ -77,3 +77,14 @@
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+    #metrics {
+        flex-wrap: wrap;
+
+        .box {
+            width: calc((100% - (26px)) / 2);
+            margin-bottom: 26px;
+        }
+    }
+}

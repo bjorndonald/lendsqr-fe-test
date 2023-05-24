@@ -17,3 +17,13 @@
         white-space: nowrap;
     }
 }
+
+@media screen and (max-width: 768px) {
+    #users-table {
+        overflow-x: auto;
+
+        #table-wrapper {
+            width: fit-content;
+        }
+    }
+}

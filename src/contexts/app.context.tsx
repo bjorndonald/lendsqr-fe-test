@@ -1,16 +1,27 @@
-import React, { createContext, ReactNode, useContext } from "react"
+import React, { createContext, ReactNode, useContext, useEffect, useState } from "react"
+import { STORAGE_KEY } from "../constants/strings"
+import { getUsers } from "../queries/user"
+import { UserType } from "../types/user"
 
-const AppContext = createContext({})
+const AppContext = createContext({
+    isMobile: false,
+    menuIsOpen: false,
+    setMenuIsOpen: (bool: boolean) => { },
+})
 
 type Props = {
     children: ReactNode
 }
 
-
 const AppContextProvider = ({ children }: Props) => {
+    const [menuIsOpen, setMenuIsOpen] = useState(false)
+    const isMobile = window.innerWidth < 768
+
     return <AppContext.Provider
         value={{
-
+            isMobile,
+            menuIsOpen,
+            setMenuIsOpen
         }}
     >
         {children}

@@ -8,7 +8,7 @@ type Props = {
 
 function PageLayout({ children }: Props) {
   return (
-    <div id='page'>
+    <>
       <Header />
       <div className="content">
         <SideBar />
@@ -16,7 +16,7 @@ function PageLayout({ children }: Props) {
           {children}
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

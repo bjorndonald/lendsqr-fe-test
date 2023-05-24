@@ -125,3 +125,26 @@
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+    #right-side {
+        height: auto;
+        width: 100vw;
+        padding: 20px;
+        box-shadow: none;
+        background-color: #ffffff;
+
+        .body {
+            margin-left: 0;
+
+            .top {
+                margin-bottom: 20px;
+
+                h2,
+                h4 {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

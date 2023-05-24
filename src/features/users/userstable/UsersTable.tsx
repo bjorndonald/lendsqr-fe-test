@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import Table from '../../../components/table/Table'
-import { MONTHS } from '../../../constants/strings'
+import { MONTHS, STORAGE_KEY } from '../../../constants/strings'
 import DotMenuIcon from '../../../icons/DotMenu.icon'
 import $ from 'jquery'
 import ActivateIcon from '../../../icons/table/Activate.icon'
@@ -100,7 +100,10 @@ const StatusRow = ({ user }: { user: UserType }) => {
                 <DotMenuIcon />
             </a>
             <div className="popup-menu">
-                <div className="popup-item" onClick={() => { navigate('/user/' + user.id) }}>
+                <div className="popup-item" onClick={() => {
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify(user))
+                    navigate('/user/' + user.id)
+                }}>
                     <EyeIcon color='#545F7D' />
                     <span>View Details</span>
                 </div>
@@ -135,7 +138,11 @@ function UsersTable() {
     const getRows = () => {
         return users.map((value, index) => {
             return {
-                organization: <div onClick={() => { navigate('/user/' + value.id) }} className='org'>{value.orgName}</div>,
+                organization: <div onClick={() => {
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify(value))
+                    navigate('/user/' + value.id)
+                }
+                } className='org'>{value.orgName}</div>,
                 username: <div className='username'>{value.userName}</div>,
                 email: value.email,
                 phone: value.phoneNumber.split('x')[0],

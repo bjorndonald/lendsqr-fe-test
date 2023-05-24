@@ -25,11 +25,25 @@ import AuditIcon from '../../icons/sidebar/Audit.icon'
 import MessagesIcon from '../../icons/sidebar/Messages.icon'
 import LogoutIcon from '../../icons/sidebar/Logout.icon'
 import { useNavigate } from 'react-router-dom'
+import { useAppContext } from '../../contexts/app.context'
+import DownPointerIcon from '../../icons/DownPointer.icon'
 
 function SideBar() {
-    const navigate = useNavigate()
-    return (
+    const { menuIsOpen, isMobile } = useAppContext()
+
+    return menuIsOpen || !isMobile ? (
         <div id='side-bar'>
+            {isMobile && <div className='d-flex top-section align-items-center'>
+                <a>Docs</a>
+                <div className="icon"><img src="/images/header/bell.png" alt="" /></div>
+                <div className="profile-menu">
+                    <div className="profile-img">
+                        <img src="/images/header/avatar.png" alt="" />
+                    </div>
+                    <span>Adedeji</span>
+                    <DownPointerIcon color={BLUE_COLOR} />
+                </div>
+            </div>}
             <div className="menu">
                 <BriefcaseIcon color={BLUE_COLOR} />
                 <span>Switch Organization</span>
@@ -38,12 +52,12 @@ function SideBar() {
             </div>
 
             <ul className="list">
-                <li className={window.location.href.includes('dashboard') ? 'active' : ''} onClick={() => navigate('/dashboard')}><HomeIcon color={BLUE_COLOR} /> <span>Dashboard</span></li>
+                <li className={window.location.href.includes('dashboard') ? 'active' : ''} onClick={() => window.location.assign('/dashboard')}><HomeIcon color={BLUE_COLOR} /> <span>Dashboard</span></li>
             </ul>
 
             <ul className="list">
                 <h5>CUSTOMERS</h5>
-                <li className={window.location.href.includes('users') ? 'active' : ''} onClick={() => navigate('/users')} ><UsersIcon color={BLUE_COLOR} /><span>Users</span></li>
+                <li className={window.location.href.includes('users') ? 'active' : ''} onClick={() => window.location.assign('/users')} ><UsersIcon color={BLUE_COLOR} /><span>Users</span></li>
                 <li><GuarantorsIcon color={BLUE_COLOR} /><span>Guarantors</span> </li>
                 <li><LoansIcon color={BLUE_COLOR} /> <span>Loans</span></li>
                 <li><HandshakesIcon color={BLUE_COLOR} /><span>Decision Models</span></li>
@@ -80,7 +94,7 @@ function SideBar() {
                 <small>v1.2.0</small>
             </div>
         </div>
-    )
+    ) : <></>
 }
 
 export default SideBar

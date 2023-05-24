@@ -127,7 +127,7 @@ function Table({ rows, columns }: Props) {
 
 
     return (
-        <>
+        <div id='table-wrapper'>
             <div id='table'>
                 <div className="table-header">
                     <div className="table-row">
@@ -248,7 +248,7 @@ function Table({ rows, columns }: Props) {
                     </a>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

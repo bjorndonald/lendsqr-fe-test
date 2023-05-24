@@ -26,7 +26,7 @@ header {
             color: #213F7D;
         }
 
-        .menu {
+        .profile-menu {
             display: flex;
             align-items: center;
         }
@@ -111,11 +111,7 @@ header {
                 font-weight: 400;
                 font-size: 14px;
                 line-height: 16px;
-
-                /* #545F7D */
-
                 color: #545F7D;
-
                 opacity: 0.7;
             }
 
@@ -132,6 +128,34 @@ header {
                     height: 14px;
                     width: auto;
                 }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        width: 100vw;
+        padding: 0 10px;
+        justify-content: space-between;
+
+        .logo {
+            margin-right: 0 !important;
+        }
+
+        .right-section {
+
+            a,
+            .icon,
+            .profile-menu {
+                margin-right: 10px;
+            }
+        }
+
+        .menu {
+            svg {
+                width: 24px;
+                height: auto;
             }
         }
     }

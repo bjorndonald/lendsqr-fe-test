@@ -5,7 +5,7 @@ import './right-side.style.scss'
 function RightSide() {
   const navigate = useNavigate()
   const login = () => {
-    navigate('/users')
+    navigate('/dashboard')
   }
   return (
     <div id='right-side'>

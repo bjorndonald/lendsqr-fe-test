@@ -12,3 +12,15 @@
         margin-bottom: 40px;
     }
 }
+
+@media screen and (max-width: 768px) {
+    #users {
+        width: 100vw;
+        padding: 20px;
+        padding-bottom: 40px;
+
+        h3 {
+            margin-bottom: 20px;
+        }
+    }
+}
