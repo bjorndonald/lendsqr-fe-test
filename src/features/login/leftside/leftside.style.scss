@@ -1,0 +1,16 @@
+#left-side {
+    width: 50%;
+    height: 100%;
+    position: relative;
+    padding: 106px 97px;
+    background-color: #ffffff;
+
+    img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 600px;
+        height: auto;
+    }
+}

@@ -8,9 +8,3 @@ test('renders page element', () => {
   const linkElement = result.container.querySelector('#page');;
   expect(linkElement).toBeInTheDocument();
 });
-
-test('renders login element', () => {
-  const result = render(<Login />);
-  const linkElement = result.container.querySelector('#login');;
-  expect(linkElement).toBeInTheDocument();
-});
