@@ -3,8 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import './right-side.style.scss'
 
 function RightSide() {
-  const navigate = useNavigate();
-
+  const navigate = useNavigate()
+  const login = () => {
+    navigate('/users')
+  }
   return (
     <div id='right-side'>
       <div className="body">
@@ -25,8 +27,9 @@ function RightSide() {
           </div>
           <a>FORGOT PASSWORD?</a>
 
-          <button onClick={() => {
-            navigate('/users', { replace: true });
+          <button onClick={(e) => {
+            e.preventDefault()
+            login()
           }} className='d-flex align-items-center justify-content-center'>
             LOG IN
           </button>
