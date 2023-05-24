@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 import Header from '../components/header/Header'
-
+import SideBar from '../components/sidebar/SideBar'
 
 type Props = {
   children: ReactNode
@@ -11,7 +11,10 @@ function PageLayout({ children }: Props) {
     <div id='page'>
       <Header />
       <div className="content">
-        {children}
+        <SideBar />
+        <div className="body">
+          {children}
+        </div>
       </div>
     </div>
   )

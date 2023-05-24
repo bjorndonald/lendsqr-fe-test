@@ -1,0 +1,115 @@
+@import './../../styles/variables';
+
+#side-bar {
+    z-index: 3;
+    width: 283px;
+    min-height: 100%;
+    background: #FFFFFF;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+    padding-bottom: 18px;
+
+    .bottom {
+        padding-top: 20px;
+        border-top: 1px solid rgba($color: #213F7D, $alpha: 0.1);
+        padding-left: 30px;
+
+        small {
+            font-family: 'Work Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 14px;
+            color: #213F7D;
+        }
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .menu {
+        width: 100%;
+        display: flex;
+        padding-left: 30px;
+        margin-bottom: 52px;
+        align-items: center;
+
+
+        svg:first-child {
+            width: 16px;
+            height: auto;
+        }
+
+        span {
+            font-family: 'Work Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 19px;
+            color: $blue_color;
+            margin: 0 10px;
+        }
+
+        svg:last-child {
+            width: 14px;
+            height: auto;
+        }
+    }
+
+    .list {
+        margin-bottom: 40px;
+
+        h5 {
+            font-family: 'Work Sans';
+            font-style: normal;
+            padding-left: 30px;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 14px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            color: #545F7D;
+        }
+
+        li,
+        .log-out {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            height: 40px;
+            opacity: 0.6;
+            padding-left: 30px;
+
+            svg {
+                width: 16px;
+                height: auto;
+                margin-right: 10px;
+            }
+
+            span {
+                font-family: 'Work Sans';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 19px;
+                color: #213F7D;
+            }
+        }
+
+        .log-out {
+            padding-left: 0;
+            opacity: 1;
+        }
+
+        li.active {
+            opacity: 1;
+            background: rgba($color: $green-color, $alpha: 0.06);
+            border-left: 3px solid $green-color;
+        }
+    }
+}
