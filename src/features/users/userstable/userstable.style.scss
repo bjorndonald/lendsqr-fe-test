@@ -1,0 +1,19 @@
+#users-table {
+    .org {
+        display: inline-block;
+        font-weight: normal;
+        text-overflow: ellipsis;
+        width: 14ch;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .username {
+        display: inline-block;
+        font-weight: normal;
+        text-overflow: ellipsis;
+        width: 11ch;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+}

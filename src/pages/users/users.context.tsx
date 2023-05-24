@@ -9,7 +9,9 @@ export enum TabEnum {
 }
 
 const UsersContext = createContext({
-
+    tab: TabEnum.GENERAL,
+    setTab: (tab: TabEnum) => { },
+    users: [{}] as UserType[]
 })
 
 type Props = {
@@ -17,9 +19,14 @@ type Props = {
 };
 
 const UsersContextProvider = ({ children }: Props) => {
+    const [tab, setTab] = useState<TabEnum>(TabEnum.GENERAL);
+    const [users, setUsers] = useState<UserType[]>([])
 
     useEffect(() => {
-
+        getUsers().then((res: any) => {
+            setUsers(res.data)
+        }).catch(error => {
+        })
         return () => {
 
         }
@@ -28,7 +35,7 @@ const UsersContextProvider = ({ children }: Props) => {
 
     return <UsersContext.Provider
         value={{
-
+            tab, setTab, users
         }}
     >
         {children}

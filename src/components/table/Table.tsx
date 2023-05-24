@@ -123,7 +123,7 @@ function Table({ rows, columns }: Props) {
                         <div key={i} className="table-row" >
                             {columns.map((item: any, index) => (
                                 <>
-                                    <div style={{ width: columns[index].width }} className="table-col">
+                                    <div key={index} style={{ width: columns[index].width }} className="table-col">
                                         <span>{Object.values(x)[index]}</span>
                                     </div>
                                 </>
