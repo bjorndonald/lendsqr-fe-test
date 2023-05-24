@@ -6,9 +6,10 @@ import './styles/global.scss'
 import UsersContextProvider from './pages/users/users.context';
 import Users from './pages/users/Users';
 import { createMemoryHistory } from 'history'
+import UserContextProvider from './pages/user/user.context';
+import User from './pages/user/User';
 
 function App() {
-  const history = createMemoryHistory()
   return (
     <div id='page'>
       <Router>
@@ -19,6 +20,10 @@ function App() {
               <UsersContextProvider>
                 <Users />
               </UsersContextProvider>} />
+            <Route path='/user/:id' element={
+              <UserContextProvider>
+                <User />
+              </UserContextProvider>} />
           </Routes>
         </AppContextProvider>
       </Router>
