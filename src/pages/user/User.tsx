@@ -1,6 +1,7 @@
 import React from 'react'
 import { Tab } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
+import UserHeader from '../../features/user/userheader/UserHeader'
 
 import ArrowIcon from '../../icons/Arrow.icon'
 import PageLayout from '../../layouts/Page.layout'
@@ -32,7 +33,10 @@ function User() {
                 </div>
 
 
+                <Tab.Container activeKey={tab}>
+                    <UserHeader />
 
+                </Tab.Container>
             </div>
         </PageLayout>
 

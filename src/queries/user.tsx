@@ -15,7 +15,7 @@ export const getUsers = () => {
 export const getUser = (id: string | undefined) => {
     return new Promise(async (resolve, reject) => {
         try {
-            let res = await axios.get(ENV.API_URL + '/user/' + id)
+            let res = await axios.get(ENV.API_URL + '/users/' + id)
             resolve(res)
         } catch (err) {
             reject(err)
