@@ -1,0 +1,1 @@
+export const BLUE_COLOR = '#213F7D'
