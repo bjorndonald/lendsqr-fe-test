@@ -1,5 +1,13 @@
 #user {
     padding: 60px;
+    position: relative;
+
+    #loading {
+        position: absolute;
+        margin: 30px auto;
+        left: calc(50% - 100px);
+        transform: translateX(-50%);
+    }
 
     .back {
         display: flex;

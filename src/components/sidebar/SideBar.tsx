@@ -28,12 +28,10 @@ import { useNavigate } from 'react-router-dom'
 import { useAppContext } from '../../contexts/app.context'
 import DownPointerIcon from '../../icons/DownPointer.icon'
 
-function SideBar() {
-    const { menuIsOpen, isMobile } = useAppContext()
-
-    return menuIsOpen || !isMobile ? (
+function SideBar({ mobile, isMenuOpen }: { mobile: boolean, isMenuOpen: boolean }) {
+    return isMenuOpen || !mobile ? (
         <div id='side-bar'>
-            {isMobile && <div className='d-flex top-section align-items-center'>
+            {mobile && <div data-testid="profile-info" className='d-flex top-section align-items-center'>
                 <a>Docs</a>
                 <div className="icon"><img src="/images/header/bell.png" alt="" /></div>
                 <div className="profile-menu">

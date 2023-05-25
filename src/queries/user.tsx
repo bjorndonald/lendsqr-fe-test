@@ -22,3 +22,5 @@ export const getUser = (id: string | undefined) => {
         }
     })
 }
+
+export default { getUser, getUsers }

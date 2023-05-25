@@ -7,15 +7,15 @@ import HamburgerIcon from '../../icons/Hamburger.icon'
 import SearchIcon from '../../icons/Search.icon'
 import './header.style.scss'
 
-function Header() {
-    const { isMobile, setMenuIsOpen, menuIsOpen } = useAppContext()
+function Header({ mobile }: { mobile: boolean }) {
+    const { setMenuIsOpen, menuIsOpen } = useAppContext()
     return (
         <header>
             <div className="d-flex left-section align-items-center">
                 <a href='/' className='logo'>
                     <LogoGraphic />
                 </a>
-                {!isMobile && <div className="search-bar">
+                {!mobile && <div className="search-bar">
                     <input type="text" placeholder='Search for anything' />
                     <button className="search-btn">
                         <SearchIcon color='#ffffff' />
@@ -24,7 +24,7 @@ function Header() {
 
             </div>
             <div className="right-section">
-                {!isMobile && <>
+                {!mobile && <>
                     <a>Docs</a>
                     <div className="icon"><img src="/images/header/bell.png" alt="" /></div>
                     <div className="profile-menu">
@@ -35,7 +35,7 @@ function Header() {
                         <DownPointerIcon color={BLUE_COLOR} />
                     </div>
                 </>}
-                {isMobile && <a className='menu' onClick={() => setMenuIsOpen(!menuIsOpen)}>
+                {mobile && <a data-testid="hamburger-menu" className='menu' onClick={() => setMenuIsOpen(!menuIsOpen)}>
                     <HamburgerIcon />
                 </a>}
             </div>

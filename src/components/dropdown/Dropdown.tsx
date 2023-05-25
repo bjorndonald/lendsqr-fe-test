@@ -29,7 +29,7 @@ function Dropdown({ selectedValue, setValue, list, id }: Props) {
                 <a><CaretIcon /></a>
             </div>
             {open && <div className="dropdown-list">
-                {list.map((item, index) => (
+                {list.filter(x => x !== selectedValue).map((item, index) => (
                     <div key={index} onClick={() => {
                         setValue(item)
                         setOpen(false)

@@ -38,7 +38,7 @@
         padding-left: 30px;
         margin-bottom: 52px;
         align-items: center;
-
+        cursor: pointer;
 
         svg:first-child {
             width: 16px;
@@ -78,6 +78,7 @@
 
         li,
         .log-out {
+            cursor: pointer;
             margin-bottom: 10px;
             display: flex;
             align-items: center;

@@ -12,7 +12,6 @@
     "@types/react-dom": "^18.2.4",
     "axios": "^1.4.0",
     "bootstrap": "^5.2.3",
-    "enzyme": "^3.11.0",
     "history": "^5.3.0",
     "jquery": "^3.7.0",
     "lodash": "^4.17.21",
@@ -51,7 +50,13 @@
     ]
   },
   "devDependencies": {
+    "@types/css-mediaquery": "^0.1.1",
     "@types/enzyme": "^3.10.13",
-    "@types/jquery": "^3.5.16"
+    "@types/enzyme-adapter-react-16": "^1.0.6",
+    "@types/jquery": "^3.5.16",
+    "@types/lodash": "^4.14.194",
+    "css-mediaquery": "^0.1.2",
+    "enzyme": "^3.11.0",
+    "nock": "^13.3.1"
   }
 }

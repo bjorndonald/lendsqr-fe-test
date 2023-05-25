@@ -120,9 +120,9 @@ const StatusRow = ({ user }: { user: UserType }) => {
     )
 }
 
-function UsersTable() {
+function UsersTable({ users }: { users: UserType[] }) {
     const navigate = useNavigate()
-    const { users } = useUsersContext()
+
 
     const formatDate = (date: Date) => {
         const month = MONTHS[date.getMonth()];

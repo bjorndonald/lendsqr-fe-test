@@ -3,14 +3,15 @@ import { Tab } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import UserBody from '../../features/user/userbody/UserBody'
 import UserHeader from '../../features/user/userheader/UserHeader'
-
+import _ from 'lodash'
 import ArrowIcon from '../../icons/Arrow.icon'
 import PageLayout from '../../layouts/Page.layout'
 import { useUserContext } from './user.context'
 import './user.scss'
+import Loading from '../../components/loading/Loading'
 
 function User() {
-    const { tab } = useUserContext()
+    const { tab, user } = useUserContext()
     const navigate = useNavigate()
 
     return (
@@ -31,11 +32,11 @@ function User() {
                         </button>
                     </div>
                 </div>
-
-                <Tab.Container activeKey={tab}>
+                {!_.isEmpty(user) && <Tab.Container activeKey={tab}>
                     <UserHeader />
                     <UserBody />
-                </Tab.Container>
+                </Tab.Container>}
+                {_.isEmpty(user) && <Loading />}
             </div>
         </PageLayout>
 

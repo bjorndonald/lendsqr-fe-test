@@ -12,24 +12,18 @@ import RightSide from '../../features/login/rightside/RightSide';
 describe('Login Page', () => {
 
     it('should display Welcome! text', () => {
-        // Act
         const { getByText } = render(<BrowserRouter>
             <Login />
         </BrowserRouter>);
-
-        // Assert
         const element = getByText('Welcome!');
         expect(element).not.toBeNull();
         expect(element.tagName).toEqual('H2');
     });
 
     it('left side and right side should be side by side and equal width', () => {
-        // Act
         const result = render(<BrowserRouter>
             <Login />
         </BrowserRouter>);
-
-        // Assert
         const leftElement = result.container.querySelector('#left-side');
         const rightElement = result.container.querySelector('#right-side');
 
@@ -38,11 +32,8 @@ describe('Login Page', () => {
         expect(leftElement?.clientWidth).toEqual(rightElement?.clientWidth);
     });
 
-    it('should display login page using snapshot testing', () => {
-        // Act
+    it('Using snapshot testing', () => {
         const { asFragment } = render(<BrowserRouter><Login /></BrowserRouter>);
-
-        // Assert
         expect(asFragment()).toMatchSnapshot();
     });
 
