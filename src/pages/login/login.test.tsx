@@ -1,16 +1,11 @@
 import * as React from 'react';
 import {
-    RouterProvider,
-    createMemoryRouter,
     BrowserRouter,
 } from "react-router-dom";
-import userEvent from '@testing-library/user-event'
-import { fireEvent, screen, render, act } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import Login from './index';
-import RightSide from '../../features/login/rightside/RightSide';
 
 describe('Login Page', () => {
-
     it('should display Welcome! text', () => {
         const { getByText } = render(<BrowserRouter>
             <Login />

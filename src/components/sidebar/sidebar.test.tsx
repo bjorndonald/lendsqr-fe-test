@@ -1,9 +1,4 @@
-import { fireEvent, render } from "@testing-library/react";
-import { screen } from '@testing-library/dom'
-import AppContextProvider from "../../contexts/app.context";
-import PageLayout from "../../layouts/Page.layout";
-import { resizeScreenSize } from "../../utils/numbers";
-import Header from "../header/Header";
+import { render } from "@testing-library/react";
 import SideBar from "./SideBar";
 
 describe('Sidebar component', () => {

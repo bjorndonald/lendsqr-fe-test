@@ -1,5 +1,4 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import { resizeScreenSize } from "../../utils/numbers";
 import Dropdown from "./Dropdown";
 
 describe('Dropdown component', () => {
