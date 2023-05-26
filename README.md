@@ -8,12 +8,10 @@ This dashboard will use a mock API to display user information in well designed 
 The project is effectively complete but may involve more improvements. Users can login and see a full list of users as well as their respective details. Functionality to sort by additional parameters is in progress.
 
 ## Project Screen Shot(s)
+<img src ="./public/images/screenshots/1.png" alt="Login Page" width="25%" title='Login Page'/>
+<img src ="./public/images/screenshots/1.png" alt="Users Page" width="25%" title='Login Page'/>
+<img src ="./public/images/screenshots/1.png" alt="User details" width="25%" title='Login Page'/>
 
-![Alt text](/https://raw.githubusercontent.com/bjorndonald/lendsqr-fe-test/main/public/images/screenshots/1.png?raw=true "Login Page")
-
-![Alt text](/https://raw.githubusercontent.com/bjorndonald/lendsqr-fe-test/main/public/images/screenshots/2.png?raw=true "Users Page")
-
-![Alt text](/https://raw.githubusercontent.com/bjorndonald/lendsqr-fe-test/main/public/images/screenshots/3.png?raw=true "User Page")
 
 ## Installation and Setup Instructions 
 
