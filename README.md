@@ -9,8 +9,8 @@ The project is effectively complete but may involve more improvements. Users can
 
 ## Project Screen Shot(s)
 <img src ="./public/images/screenshots/1.png" alt="Login Page" width="25%" title='Login Page'/>
-<img src ="./public/images/screenshots/1.png" alt="Users Page" width="25%" title='Login Page'/>
-<img src ="./public/images/screenshots/1.png" alt="User details" width="25%" title='Login Page'/>
+<img src ="./public/images/screenshots/2.png" alt="Users Page" width="25%" title='Login Page'/>
+<img src ="./public/images/screenshots/3.png" alt="User details" width="25%" title='Login Page'/>
 
 
 ## Installation and Setup Instructions 
