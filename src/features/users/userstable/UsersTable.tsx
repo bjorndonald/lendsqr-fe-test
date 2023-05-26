@@ -143,7 +143,10 @@ function UsersTable({ users }: { users: UserType[] }) {
                     navigate('/user/' + value.id)
                 }
                 } className='org'>{value.orgName}</div>,
-                username: <div className='username'>{value.userName}</div>,
+                username: <div onClick={() => {
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify(value))
+                    navigate('/user/' + value.id)
+                }} className='username'>{value.userName}</div>,
                 email: value.email,
                 phone: value.phoneNumber.split('x')[0],
                 date_joined: formatDate(new Date(value.createdAt)),
