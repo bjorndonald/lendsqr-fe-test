@@ -9,11 +9,11 @@ The project is effectively complete but may involve more improvements. Users can
 
 ## Project Screen Shot(s)
 
-![Alt text](/https://github.com/bjorndonald/lendsqr-fe-test/blob/main/public/images/screenshots/1.png?raw=true "Login Page")
+![Alt text](/https://raw.githubusercontent.com/bjorndonald/lendsqr-fe-test/main/public/images/screenshots/1.png?raw=true "Login Page")
 
-![Alt text](/https://github.com/bjorndonald/lendsqr-fe-test/blob/main/public/images/screenshots/2.png?raw=true "Users Page")
+![Alt text](/https://raw.githubusercontent.com/bjorndonald/lendsqr-fe-test/main/public/images/screenshots/2.png?raw=true "Users Page")
 
-![Alt text](/https://github.com/bjorndonald/lendsqr-fe-test/blob/main/public/images/screenshots/3.png?raw=true "User Page")
+![Alt text](/https://raw.githubusercontent.com/bjorndonald/lendsqr-fe-test/main/public/images/screenshots/3.png?raw=true "User Page")
 
 ## Installation and Setup Instructions 
 
